@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html layout:decorator="public/shared/masterlayout"
+	  xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
+<body>
+	<th:block layout:fragment="header"></th:block>
+    <th:block layout:fragment="content">
+    			<h3>EDIT RETRIEVED BOOKING FORM</h3>
+    	<form id="bookingForm" method="post" action="/ebicyclerental/staff/bookingform/save" th:object="${bookings}">
+    		<fieldset>
+    			<input type="hidden" name="bookingId" th:value="${bookings}"/>
+    			<input type="hidden" name="userId" th:value="${bookings.user.userId}"/>
+                <div class="container" style="margin-top: 1em;">
+                   	<div class="row">
+               			<div class="col-md-3">               			
+			                <div class="form-group">               
+								<label for="referenceNumber">Reference Number</label>
+			                    <span th:if="${#fields.hasErrors('referenceNumber')}" th:errors="*{referenceNumber}" class="alert alert-danger"></span>
+			                    <input id="referenceNumber" name="referenceNumber" type="text" class="form-control" th:value="${bookings.}" readonly>
+			                </div>
+			             </div>
+			             <div class="col-md-3">   
+			                <div class="form-group">               
+								<label for="bookingDate">Booking Date</label>
+			                    <span th:if="${#fields.hasErrors('bookingDate')}" th:errors="*{bookingDate}" class="alert alert-danger"></span>
+			                    <input id="bookingDate" name="bookingDate" type="date" class="form-control" aria-describedby="bookingDatehHelp" th:value="${bookings}" readonly>
+			                </div>  
+			       		</div>
+			       		<div class="col-md-3">                
+                			<div class="form-group">               
+								<label for="startDate">Start Date</label>
+			                    <span th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}" class="alert alert-danger"></span>
+			                    <input id="startDate" name="startDate" type="date" class="form-control" aria-describedby="startDatehHelp" th:value="${booking.startDate}">             
+<!-- 			               		<small id="startDateHelp" class="form-text text-muted">Enter a valid Date.</small>
+ -->			                </div>
+			            </div> 
+			            <div class="col-md-3">    
+			                <div class="form-group">               
+								<label for="endDate">End Date</label>
+			                    <span th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}" class="alert alert-danger"></span>
+			                    <input id="endDate" name="endDate" type="date" class="form-control" aria-describedby="endDatehHelp" th:value="${booking.endDate}">             
+<!-- 			               		<small id="endDateHelp" class="form-text text-muted">Enter a valid Date.</small>
+ -->			                </div>
+	                 	</div>
+	                 	
+	                 	<div class="col-md-6">
+		                	<div class="form-group">               
+								<label for="firstName">First Name</label>
+			                    <span th:if="${#fields.hasErrors('user.firstName')}" th:errors="*{user.firstName}" class="alert alert-danger"></span>
+			                    <input id="user.firstName" name="user.firstName" type="text" class="form-control" th:value="${booking.user.firstName}">             
+			                </div>
+	                	</div>
+	                	
+	                	<div class="col-md-6">
+		                	<div class="form-group">               
+								<label for="lastName">Last Name</label>
+			                    <span th:if="${#fields.hasErrors('user.lastName')}" th:errors="*{user.lastName}" class="alert alert-danger"></span>
+			                    <input id="user.lastName" name="user.lastName" type="text" class="form-control" th:value="${booking.user.lastName}">             
+			                </div>
+	                	</div>
+	                	
+	                	<div class="col-md-6">
+		                	<div class="form-group">               
+								<label for="dateOfBirth">Date of Birth</label>
+			                    <span th:if="${#fields.hasErrors('user.dateOfBirth')}" th:errors="*{user.dateOfBirth}" class="alert alert-danger"></span>
+			                    <input id="user.dateOfBirth" name="user.dateOfBirth" type="date" class="form-control" th:value="${booking.user.dateOfBirth}">             
+			                </div>
+	                	</div>
+	                	
+	                	<div class="col-md-6">
+		                	<div class="form-group">               
+								<label for="licenseNumber">Driving License Number</label>
+			                    <span th:if="${#fields.hasErrors('user.licenseNumber')}" th:errors="*{user.licenseNumber}" class="alert alert-danger"></span>
+			                    <input id="user.licenseNumber" name="user.licenseNumber" type="text" class="form-control" th:value="${booking.user.licenseNumber}">             
+			                </div>
+	                	</div>
+	                	<div class="col-md-3" style="float=right">
+		                	<div class="form-group">               
+								<label for="totalPrice">YOUR BOOKING TOTAL</label>
+			                    <span th:if="${#fields.hasErrors('payment.totalPrice')}" th:errors="*{payment.totalPrice}" class="alert alert-danger"></span>
+			                    <input id="payment.totalPrice" name="payment.totalPrice" type="text" class="form-control" th:value="${booking.payment.totalPrice}" readonly>             
+			                </div>
+	                	</div>         
+			    	</div>
+		    	</div>
+		    	<div style="float:right;">
+		    		<button id="btnSubmit" type="submit" class="btn btn-outline-success">COMPLETE BOOKING</button>
+                    <a href="/company/admin/bookings" class="btn btn-outline-warning">Pay Now</a>&nbsp;&nbsp;&nbsp;
+                    <small id="bookingHelp" class="form-text text-muted">PAY AT PICKUP</small>
+                </div>
+    		</fieldset>
+        </form>
+    </th:block>
+    <th:block layout:fragment="footer"></th:block>
+</body>
+</html>

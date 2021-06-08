@@ -1,0 +1,109 @@
+<html data-layout-decorator="layout/masterlayout"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
+<body>
+<th:block layout:fragment="header">
+    <div class="col-xs-4 text-center">
+        <h1>L O G I N</h1>
+    </div>
+</th:block>
+<th:block layout:fragment="content">
+    <h3>SIGN UP</h3>
+    <hr/>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="card border-secondary mb-4" style="max-width: 60rem;">
+                    <div class="card-header">Sign Up Now</div>
+                    <div class="card-body">
+                        <h4 class="card-title">User Registration Form - Sign Up</h4>
+                        <p class="card-text">
+                            Enter your information below, to sign up.
+                        </p>
+                        <div>
+
+                            <form th:action="@{/ebicyclerental/user/users/process_register}" th:object="${user}"
+                                  method="post" style="max-width: 600px; margin: 0 auto;">
+                                <div class="m-3">
+
+                                    <div th:if="${error}" class="alert alert-dismissible alert-danger">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        Username Already Reserved.
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-4 col-form-label">First Name: </label>
+                                        <div class="col-8">
+                                            <input type="text" th:field="*{firstName}" class="form-control"
+                                                   required minlength="2" maxlength="20"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-4 col-form-label">Middle Name: </label>
+                                        <div class="col-8">
+                                            <input type="text" th:field="*{middleName}" class="form-control"
+                                                   required minlength="2" maxlength="20"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-4 col-form-label">Last Name: </label>
+                                        <div class="col-8">
+                                            <input type="text" th:field="*{lastName}" class="form-control"
+                                                   required minlength="2" maxlength="20"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-4 col-form-label">DateOfBirth: </label>
+                                        <div class="col-8">
+                                            <input type="date" th:field="*{dateOfBirth}" class="form-control" required/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-4 col-form-label">LicenseNumber: </label>
+                                        <div class="col-8">
+                                            <input type="text" th:field="*{licenseNumber}" class="form-control"
+                                                   required/>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row">
+                                        <label class="col-4 col-form-label">UserName: </label>
+                                        <div class="col-8">
+                                            <input type="text" th:field="*{credential.userName}" class="form-control"
+                                                   required/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-4 col-form-label">Password: </label>
+                                        <div class="col-8">
+                                            <input type="password" th:field="*{credential.password}"
+                                                   class="form-control"
+                                                   required minlength="6" maxlength="10"/>
+                                        </div>
+                                    </div>
+
+
+                                    <div>
+                                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</th:block>
+
+<th:block layout:fragment="footer"></th:block>
+</body>
+</html>

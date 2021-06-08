@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      data-layout-decorator="~{layout/masterlayout}">
+<head>
+    <title>The ebicycle Rental System  </title>
+    <style>
+        img {
+            max-width: 100%;
+            max-height: 100%;
+
+        }
+
+        .josidmu {
+            height: 540px;
+            width: 100%;
+            position: fixed;
+        }
+        p {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div layout:fragment="content" style="padding-top:1em;" class="container">
+        <h3>Welcome to the Miu Bicycle Rental System<sup>&reg;</sup></h3>
+        <hr/>
+      <div class="josidmu">
+            <img th:src="@{/images/josidmu.png}" class="float-left" style="padding:10px;" /><br/><br/>
+           <p> We are a Miu bicycle Rental To book click services
+               <p>
+              To find out more visit <a href="/ebicyclerental/public/home/about">about us</a>
+      </p>
+               <p>
+           We are more than happy to serve you with the bicycles we have.
+          </p>
+          <p>
+             Our aim is to serve MIU community by offering rental bicycle
+                <!--You can also take a virtual tour-->
+             <!--   of our world-class facilities and be amazed at all what we have in stock
+                for you, your family and friends-->.
+      </p>
+          </p>
+          </p>
+
+
+        </div>
+    </div>
+
+    <th:block layout:fragment="footer"></th:block>
+
+</body>
+</html>

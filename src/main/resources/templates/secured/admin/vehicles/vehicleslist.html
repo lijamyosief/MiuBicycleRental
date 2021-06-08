@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html data-layout-decorator="layout/masterlayout"
+	xmlns:th="http://www.thymeleaf.org">
+<body>
+
+    <th:block layout:fragment="content">
+    	<a>V E H I C L E S</a>
+		<a style="float:right;" href="/ebicyclerental/admin/vehicles/add">ADD NEW VEHICLE</a>
+		<a style="float:right; padding-right: 2em;" href="/ebicyclerental/admin/categories">MANAGE VEHICLE CATEGORIES</a>
+		<br></br>
+    	<table class="table table-striped">
+			<thead>
+				<th scope="col">No.</th>
+				<th>Vehicle Number</th>
+				<th>Plate Number</th>
+				<th>Make</th>
+				<th>Model</th>
+				<th>Year</th>
+				<th>Bicycle Type</th>
+				<th>Actions</th>
+			</thead>
+			<tbody>
+				<tr th:each="vehicle, rowNumbering : ${vehicles}">
+					<td scope="row" th:text="${rowNumbering.count}+'.'"></td>
+					<td th:text="${vehicle.vehicleNumber}"></td>
+					<td th:text="${vehicle.plateNumber}"></td>
+					<td th:text="${vehicle.make}"></td>
+					<td th:text="${vehicle.model}"></td>
+					<td th:text="${vehicle.year}"></td>
+					<td th:text="${vehicle.category.vehicleType}"></td>
+					<td>
+						<a th:href="@{'/ebicyclerental/admin/vehicles/edit/' + ${vehicle.vehicleId}}" class="btn btn-outline-success">Edit</a>
+						<a th:href="@{'/ebicyclerental/admin/vehicles/delete/' + ${vehicle.vehicleId}}" class="btn btn-outline-warning">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+    </th:block>
+    <th:block layout:fragment="footer"></th:block>
+</body>
+</html>

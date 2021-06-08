@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html layout:decorator="layout/masterlayout"
+	  xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
+<body>
+	<th:block layout:fragment="header"></th:block>
+    <th:block layout:fragment="content">
+    			<h3> PLEASE INSERT THE REFERENCE NUMBER FOR THE BOOKING</h3>
+    	<form id="bookingForm" method="post" action="/company/retrieve" th:object="${booking}">
+    		<fieldset>
+                <div class="container" style="margin-top: 1em;">
+                   	<div class="row">
+               			<div class="col-md-3">               			
+			                <div class="form-group">               
+								<label for="referenceNumber">Reference Number</label>
+			                    <span th:if="${#fields.hasErrors('referenceNumber')}" th:errors="*{referenceNumber}" class="alert alert-danger"></span>
+			                    <input id="referenceNumber" name="referenceNumber" type="text" class="form-control" th:value="${booking.referenceNumber}">              
+			                </div>
+			             </div>        
+			    	</div>
+		    	</div><br></br>&nbsp;&nbsp;&nbsp;
+		    	<div style="float:left;">
+		    		<button id="btnSubmit" type="submit" class="btn btn-outline-success">RETRIEVE BOOKING</button>
+                </div>
+    		</fieldset>
+        </form>
+    </th:block>
+    <th:block layout:fragment="footer"></th:block>
+</body>
+</html>

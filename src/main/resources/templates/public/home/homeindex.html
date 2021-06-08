@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html data-layout-decorator="layout/masterlayout"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
+<body>
+<th:block layout:fragment="content">
+<!--  <h4 style="background: lightgoldenrodyellow">This page contains information about a specific bicycle rental company that is going to be using the Miu Bicycle Rental-->
+<!--    Software System.</h4>-->
+ <center> <img src="/static/images/meditation.png" th:src="@{/images/meditation.png}" style="
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;"></center>
+
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
+    <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="carousel-container">
+      <center>    <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Miu Bicycle Rental</span></h2>
+<!--          <p class="animate__animated fanimate__adeInUp"></p>-->
+          <h4>If you are a member <a href="http://localhost:8080/ebicyclerental/public/home/login">Sign in</a>
+            with your username</h4>
+          <h4>If you are new <a href="http://localhost:8080/ebicyclerental/user/users/register">Sign up </a>
+            and register.</h4></center>
+        </div>
+      </div>
+    </div>
+
+     </section>
+</th:block>
+<th:block layout:fragment="footer"></th:block>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html data-layout-decorator="layout/masterlayout"
+	  xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml"
+	  xmlns:id="http://www.w3.org/1999/xhtml">
+<body>
+<th:block layout:fragment="header">
+	<div class="col-xs-4 text-center">
+		<h1>Select Your Bicycle</h1>
+	</div>
+</th:block>
+<th:block layout:fragment="content">
+	<table class="table table-white">
+		<thead>
+
+		</thead>
+		<tbody>
+		<tr th:each="category : ${availableCategories}">
+			<td th:text="${category.vehicleType}"></td>
+			<td>
+				<div th:switch="${#strings.toString(category.vehicleType)}">
+					<p th:case="'MOUNTAIN1'">
+						<img src="/static/images/mountain1.png"  th:src="@{/images/mountain1.png}" style="width:213px; height:119px">
+					</p>
+					<p th:case="'MOUNTAIN2'">
+						<img src="/static/images/mountain2.png" th:src="@{/images/mountain2.png}" style="width:213px; height:119px">
+					</p>
+					<p th:case="'MOUNTAIN3'">
+						<img src="/static/images/mountain3.png" th:src="@{/images/mountain3.png}" style="width:213px; height:119px">
+					</p>
+<!--					<p th:case="'CITY'">-->
+<!--						<img src="/static/images/city.jpg" th:src="@{/images/city.jpg}" style="width:213px; height:119px">-->
+<!--					</p>-->
+<!--					<p th:case="'RURAL'">-->
+<!--						<img src="/static/images/rural.jpg" th:src="@{/images/rural.jpg}" style="width:213px; height:119px">-->
+<!--					</p>-->
+<!--					<p th:case="'BEACH'">-->
+<!--						<img src="/static/images/beach.jpg" th:src="@{/images/beach.jpg}" style="width:213px; height:119px">-->
+<!--					</p>-->
+				</div>
+			</td>
+
+			<td th:text="${category.ratePerDay} + ' USD / Day'"></td>
+
+			<td>
+				<a class="btn btn-outline-success"
+				   th:href="@{'/ebicyclerental/secured/customer/customers/newbookingform/' + ${category.categoryId}}">BOOK</a>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+</th:block>
+</body>
+</html>

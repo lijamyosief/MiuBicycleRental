@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html data-layout-decorator="layout/masterlayout"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
+<body>
+<th:block layout:fragment="content">
+<!--    <h4 style="background: lightgoldenrodyellow">This page contains information about a specific bicycle rental company that is going to be using the Miu Bicycle Rental-->
+<!--        Software System.</h4>-->
+    <img src="/static/images/about.png" th:src="@{/images/about.png}" style="
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+float: left;
+width: 1000px;
+height: 600px;
+clear:both">
+
+
+    <div class="col-xs-4 text-left">
+        <p style= "background:lightgoldenrodyellow; font-size:20px; display: inline">What we're about
+        <div style="font-size: 20px; padding-left: 17px; display: inline">
+            <div style="margin-top: 10px">
+            We wan help people to prevent air pollution by renting bicycle instead of using Cars.
+            We want to make renting a bicycle as simple and personal as riding your own bicycle.
+    </div>
+        <div style="margin-top: 10px">
+            Renting a bicycle helps you save money. We’ll help you find bicycle for you at a great price. But
+            there’s much more to us than that. We're here to save environment and to make renting a bicycle a lot less hassle.
+        </div>
+        <div style="margin-top: 10px">
+            We know the service you receive matters
+            So we use real reviews, genuine customer feedback and our own experience to guide you through your best
+            options.
+        </div>
+        <div style="margin-top: 10px">
+            And we stay with you every step of the way
+            Our customer team is here to support you through your trip, wherever and whenever you need extra help,
+            we are here for you
+        </div>
+    </div>
+    </div>
+        </p>
+
+</th:block>
+<th:block layout:fragment="footer"></th:block>
+</body>
+</html>
