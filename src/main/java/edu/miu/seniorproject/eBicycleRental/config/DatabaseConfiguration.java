@@ -14,7 +14,7 @@ import java.net.URISyntaxException;
 public class DatabaseConfiguration {
         @Bean
         public DataSource dataSource() throws URISyntaxException {
-            URI dbUri = new URI(System.getenv("HEROKU_POSTGRESQL_AMBER_URL"));
+            URI dbUri = new URI(System.getenv("DATABASE_URL"));
             System.out.println("url+++++++"+System.getenv("HEROKU_POSTGRESQL_AMBER_URL"));
             String username = dbUri.getUserInfo().split(":")[0];
             String password = dbUri.getUserInfo().split(":")[1];
