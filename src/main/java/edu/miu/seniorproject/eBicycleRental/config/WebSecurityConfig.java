@@ -18,18 +18,19 @@ import edu.miu.seniorproject.eBicycleRental.serviceimplementation.BicyclerentalU
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true, proxyTargetClass = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
+// 1 . userdetailservice
+    @Autowired
     private UserDetailsService userDetailsService;
 
-    public WebSecurityConfig(BicyclerentalUserDetailsService userDetailsService) {
-        this.userDetailsService = userDetailsService;
-    }
-
+//    public WebSecurityConfig(BicyclerentalUserDetailsService userDetailsService) {
+//        this.userDetailsService = userDetailsService;
+//    }
+//2. password encoder
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
+//3. Authentication Manager
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
